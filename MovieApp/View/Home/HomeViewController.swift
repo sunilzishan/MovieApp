@@ -26,7 +26,7 @@ class HomeViewController: UITableViewController {
         tableView.showsVerticalScrollIndicator = false
     }
     
-    func loadData(){
+    private func loadData(){
         viewModel.getMoivesListData(pagination: false) { [weak self] result in
             DispatchQueue.main.async {
                 switch result{
@@ -39,7 +39,7 @@ class HomeViewController: UITableViewController {
         }
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "movieTableViewCell")
         
         dataSource = TableDataSource(tableView: tableView) {
@@ -51,19 +51,27 @@ class HomeViewController: UITableViewController {
         updateTableView()
     }
     
-    func updateTableView(section: Int = 0) {
+    private func updateTableView(section: Int = 0) {
         snapShot.appendSections([section])
         snapShot.appendItems(viewModel.movies, toSection: 0)
         dataSource?.apply(snapShot, animatingDifferences: true)
     }
     
-    func handleNewItems(_ newItems: [Movie]) {
+    private func handleNewItems(_ newItems: [Movie]) {
         var snapShot = dataSource?.snapshot()
         snapShot!.appendItems(newItems)
         dataSource!.apply(snapShot!, animatingDifferences: false)
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 183
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailViewController = MovieDetailViewController(withMovie: viewModel.movies[indexPath.row])
+        self.present(detailViewController, animated: true) {
+        }
     }
 
 }

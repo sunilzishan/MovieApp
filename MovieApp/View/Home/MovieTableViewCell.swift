@@ -30,13 +30,24 @@ class MovieTableViewCell: UITableViewCell {
         return label
     }()
     
+    var image: AsyncImage?
     
     func configureCell(movie: Movie) {
         self.titleLabel.text = movie.title
         if let releaseDate = movie.releaseDate {
             self.releaseYearLabel.text = String(releaseDate.prefix(4))
         }
+        self.setPosterImage(movie: movie)
         setupViews()
+    }
+    
+    private func setPosterImage(movie: Movie) {
+        image = AsyncImage(url: movie.posterFullPath)
+        self.posterImage.image = image?.image
+        image?.startDownload()
+        image?.completeDownload = { [weak self] image in
+            self?.posterImage.image = image
+        }
     }
     
     private func setupViews() {

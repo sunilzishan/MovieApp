@@ -20,6 +20,9 @@
 		2B77F857278E5B29006C47F7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F856278E5B29006C47F7 /* Movie.swift */; };
 		2B77F859278E5B6B006C47F7 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F858278E5B6B006C47F7 /* MovieTableViewCell.swift */; };
 		2B77F85B278E5BA4006C47F7 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F85A278E5BA4006C47F7 /* MovieViewModel.swift */; };
+		2B77F85D278E5D1E006C47F7 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F85C278E5D1E006C47F7 /* AsyncImage.swift */; };
+		2B77F85F278E5D2B006C47F7 /* UIImageView+Downloaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F85E278E5D2A006C47F7 /* UIImageView+Downloaded.swift */; };
+		2B77F861278E5D46006C47F7 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F860278E5D46006C47F7 /* ImageDownloadHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		2B77F856278E5B29006C47F7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		2B77F858278E5B6B006C47F7 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		2B77F85A278E5BA4006C47F7 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		2B77F85C278E5D1E006C47F7 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		2B77F85E278E5D2A006C47F7 /* UIImageView+Downloaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Downloaded.swift"; sourceTree = "<group>"; };
+		2B77F860278E5D46006C47F7 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,9 @@
 		2B77F852278E5ABB006C47F7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2B77F85C278E5D1E006C47F7 /* AsyncImage.swift */,
+				2B77F85E278E5D2A006C47F7 /* UIImageView+Downloaded.swift */,
+				2B77F860278E5D46006C47F7 /* ImageDownloadHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -313,7 +322,10 @@
 				2B77F824278E58BE006C47F7 /* ViewController.swift in Sources */,
 				2B77F820278E58BE006C47F7 /* AppDelegate.swift in Sources */,
 				2B77F859278E5B6B006C47F7 /* MovieTableViewCell.swift in Sources */,
+				2B77F861278E5D46006C47F7 /* ImageDownloadHelper.swift in Sources */,
 				2B77F822278E58BE006C47F7 /* SceneDelegate.swift in Sources */,
+				2B77F85D278E5D1E006C47F7 /* AsyncImage.swift in Sources */,
+				2B77F85F278E5D2B006C47F7 /* UIImageView+Downloaded.swift in Sources */,
 				2B77F855278E5AF8006C47F7 /* HomeViewController.swift in Sources */,
 				2B77F85B278E5BA4006C47F7 /* MovieViewModel.swift in Sources */,
 				2B77F857278E5B29006C47F7 /* Movie.swift in Sources */,

@@ -1,6 +1,6 @@
 
 [![Swift Version][swift-image]][swift-url]
-[![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](https://github.com/sunilzishan/MovieApp)
+[![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
 # Movies App
 <br />
@@ -9,7 +9,7 @@
     <img src="https://bit.ly/3nia0WG" width="80" height="80">
   </a>
   <p align="center">
-    An IOS application that displays the list of trending movies.
+    An iOS application that displays the list of trending movies.
   </p>
 </p>
 
@@ -20,7 +20,7 @@
 
 ## Features
 
-- [1] An IOS application that displays the list of trending movies
+- [1] An iOS application that displays the list of trending movies
 - [2] When we select one movie it shows more details about it, swipe down (native gesture) to go back to Movies (Home Screen)
 
 ## Requirements

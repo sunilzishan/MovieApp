@@ -18,14 +18,19 @@ enum MAError: Error {
 final class MovieViewModel {
     
     var movies: [Movie] = []
+    var isPaginating = false
     var movieResponse: MovieResponse?
     //TODO: move to config
     static let baseURL = "https://api.themoviedb.org/3/discover/movie"
     private let urlString = baseURL + "?api_key=c9856d0cb57c3f14bf75bdc6c063b8f3"
     
     func getMoivesListData(pagination: Bool = false, completed: @escaping (Result<Any, MAError>) -> Void) {
-
-        guard let url = URL(string: urlString) else {
+        if pagination {
+            isPaginating = true
+            let previousPage = movieResponse?.page ?? 1
+            movieResponse?.page = previousPage + 1
+        }
+        guard let url = URL(string: pagination ? urlString + "&page=\(movieResponse?.page ?? 1)" : urlString) else {
             completed(.failure(.invalidURL))
             return
         }
@@ -51,6 +56,9 @@ final class MovieViewModel {
                 self?.movieResponse = movieResponse
                 self?.movies.append(contentsOf: movieResponse.results)
                 completed(.success(movieResponse))
+                if pagination {
+                    self?.isPaginating = false
+                }
                 return
             } catch {
                 completed(.failure(.invalidData))

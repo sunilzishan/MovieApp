@@ -166,8 +166,8 @@
 		2B77F851278E5AA9006C47F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2B77F862278E5F35006C47F7 /* MovieDetail */,
 				2B77F853278E5ADF006C47F7 /* Home */,
+				2B77F862278E5F35006C47F7 /* MovieDetail */,
 			);
 			path = View;
 			sourceTree = "<group>";

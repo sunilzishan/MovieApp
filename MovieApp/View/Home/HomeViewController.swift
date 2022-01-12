@@ -63,6 +63,30 @@ class HomeViewController: UITableViewController {
         dataSource!.apply(snapShot!, animatingDifferences: false)
     }
     
+    private func loadNewMovies() {
+        guard !viewModel.isPaginating,
+              let page = viewModel.movieResponse?.page,
+              let totalPages = viewModel.movieResponse?.totalPages,
+              page <= totalPages //check if it's the last page
+        else {
+            //Already fetching more data
+            return
+        }
+        viewModel.getMoivesListData(pagination: true) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result{
+                case .success(let response):
+                    DispatchQueue.main.async {
+                        let resultResponse = response as! MovieResponse
+                        self?.handleNewItems(resultResponse.results)
+                    }
+                case .failure(_):
+                    print("Failed")
+                }
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 183
     }
@@ -70,7 +94,13 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailViewController = MovieDetailViewController(withMovie: viewModel.movies[indexPath.row])
-        self.present(detailViewController, animated: true) {
+        self.present(detailViewController, animated: true)
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > tableView.contentSize.height-scrollView.frame.size.height && tableView.contentSize.height > 0 {
+            loadNewMovies()
         }
     }
 

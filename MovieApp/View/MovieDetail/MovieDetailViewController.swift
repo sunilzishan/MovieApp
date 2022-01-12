@@ -9,7 +9,7 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
     
-    var posterImage: UIImageView = {
+    private var posterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
@@ -17,25 +17,29 @@ class MovieDetailViewController: UIViewController {
         return imageView
     }()
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var releaseYearLabel: UILabel = {
+    private var releaseYearLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var descriptionLabel: UILabel = {
+    private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var movie: Movie
+    var movieTitle: String
+    var movieReleaseDate: String
+    var movieOverview: String
+    var backdropFullPath: String
+    
     private var image: AsyncImage?
     
     override func viewDidLoad() {
@@ -43,9 +47,12 @@ class MovieDetailViewController: UIViewController {
         configureView()
     }
     
-    init(withMovie movie: Movie) {
-           self.movie = movie
-           super.init(nibName: nil, bundle: nil)
+    init(withMovieTitle movieTitle: String, movieReleaseDate: String, movieOverview: String, backdropFullPath: String) {
+        self.movieTitle = movieTitle
+        self.movieReleaseDate = movieReleaseDate
+        self.movieOverview = movieOverview
+        self.backdropFullPath = backdropFullPath
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -53,17 +60,15 @@ class MovieDetailViewController: UIViewController {
     }
     
     private func configureView() {
-        titleLabel.text = movie.title
-        if let releaseDate = movie.releaseDate {
-            self.releaseYearLabel.text = String(releaseDate.prefix(4))
-        }
-        descriptionLabel.text = movie.overview
-        self.setPosterImage(movie: movie)
+        titleLabel.text = movieTitle
+        self.releaseYearLabel.text = String(movieReleaseDate.prefix(4))
+        descriptionLabel.text = movieOverview
+        self.setPosterImage()
         setupViews()
     }
     
-    private func setPosterImage(movie: Movie) {
-        image = AsyncImage(url: movie.backdropFullPath)
+    private func setPosterImage() {
+        image = AsyncImage(url: backdropFullPath)
         self.posterImage.image = image?.image
         image?.startDownload()
         image?.completeDownload = { [weak self] image in

@@ -24,6 +24,7 @@
 		2B77F85F278E5D2B006C47F7 /* UIImageView+Downloaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F85E278E5D2A006C47F7 /* UIImageView+Downloaded.swift */; };
 		2B77F861278E5D46006C47F7 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F860278E5D46006C47F7 /* ImageDownloadHelper.swift */; };
 		2B77F864278E5F78006C47F7 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77F863278E5F78006C47F7 /* MovieDetailViewController.swift */; };
+		2B77F866278E6EAA006C47F7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2B77F865278E6EAA006C47F7 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		2B77F85E278E5D2A006C47F7 /* UIImageView+Downloaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Downloaded.swift"; sourceTree = "<group>"; };
 		2B77F860278E5D46006C47F7 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
 		2B77F863278E5F78006C47F7 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		2B77F865278E6EAA006C47F7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				2B77F825278E58BE006C47F7 /* Main.storyboard */,
 				2B77F828278E58BF006C47F7 /* Assets.xcassets */,
 				2B77F82A278E58BF006C47F7 /* LaunchScreen.storyboard */,
+				2B77F865278E6EAA006C47F7 /* README.md */,
 				2B77F82D278E58BF006C47F7 /* Info.plist */,
 			);
 			path = MovieApp;
@@ -305,6 +308,7 @@
 			files = (
 				2B77F82C278E58BF006C47F7 /* LaunchScreen.storyboard in Resources */,
 				2B77F829278E58BF006C47F7 /* Assets.xcassets in Resources */,
+				2B77F866278E6EAA006C47F7 /* README.md in Resources */,
 				2B77F827278E58BE006C47F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +530,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,6 +558,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

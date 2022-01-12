@@ -95,7 +95,16 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detailViewController = MovieDetailViewController(withMovie: viewModel.movies[indexPath.row])
+        let movie = viewModel.movies[indexPath.row]
+        guard let movieTitle = movie.title, let movieReleaseDate = movie.releaseDate else {
+            return
+        }
+        let detailViewController = MovieDetailViewController(
+            withMovieTitle: movieTitle,
+            movieReleaseDate: movieReleaseDate,
+            movieOverview: movie.overview ?? "",
+            backdropFullPath: movie.backdropFullPath
+        )
         self.present(detailViewController, animated: true)
     }
     
@@ -106,7 +115,7 @@ class HomeViewController: UITableViewController {
         }
     }
     
-    func loader() -> UIAlertController {
+    private func loader() -> UIAlertController {
             let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
             let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
             loadingIndicator.hidesWhenStopped = true
@@ -117,7 +126,7 @@ class HomeViewController: UITableViewController {
             return alert
         }
 
-    func stopLoader(loader : UIAlertController) {
+    private func stopLoader(loader : UIAlertController) {
         DispatchQueue.main.async {
             loader.dismiss(animated: true, completion: nil)
         }

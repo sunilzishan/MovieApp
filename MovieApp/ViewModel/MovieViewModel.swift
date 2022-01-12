@@ -20,7 +20,7 @@ final class MovieViewModel {
     var movies: [Movie] = []
     var isPaginating = false
     var movieResponse: MovieResponse?
-    //TODO: move to config
+
     static let baseURL = "https://api.themoviedb.org/3/discover/movie"
     private let urlString = baseURL + "?api_key=c9856d0cb57c3f14bf75bdc6c063b8f3"
     

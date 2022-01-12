@@ -17,6 +17,9 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         loadData()
     }
     
@@ -34,8 +37,17 @@ class HomeViewController: UITableViewController {
                 switch result{
                 case .success(_):
                     self?.configureDataSource()
-                case .failure(_):
-                    print("Failed")
+                case .failure(let mAError):
+                    switch mAError{
+                    case .invalidData:
+                        print("Invalid Data")
+                    case .invalidResponse:
+                        print("Invalid Response")
+                    case .invalidURL:
+                        print("Invalid URL")
+                    case .unableToComplete:
+                        print("Unable To Complete Request")
+                    }
                 }
             }
         }

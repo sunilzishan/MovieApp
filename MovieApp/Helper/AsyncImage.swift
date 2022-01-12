@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-/// Promise-pattern wrapped image object, with in-memory eternal cache support
 class AsyncImage {
     /// The url for the image resource
     let url: URL
@@ -31,7 +30,6 @@ class AsyncImage {
     init(url: String,
          placeholderImage: UIImage = #imageLiteral(resourceName: "imageMoviePlaceholder") ,
          imageDownloadHelper: ImageDownloadHelperProtocol = ImageDownloadHelper()) {
-        //TODO check for nil url String
         self.url = URL(string: url)!
         self.placeholder = placeholderImage
         self.imageDownloadHelper = imageDownloadHelper

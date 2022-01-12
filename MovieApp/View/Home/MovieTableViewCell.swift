@@ -9,7 +9,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
-    var posterImage: UIImageView = {
+    private var posterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 5
@@ -18,19 +18,19 @@ class MovieTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var releaseYearLabel: UILabel = {
+    private var releaseYearLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var image: AsyncImage?
+    private var image: AsyncImage?
     
     func configureCell(movie: Movie) {
         self.titleLabel.text = movie.title
